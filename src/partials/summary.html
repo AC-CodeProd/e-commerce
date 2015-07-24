@@ -1,0 +1,92 @@
+<div class="books-section">
+    <div summary >
+        <div class="mdl-grid mdl-grid--no-spacing">
+            <h2 class="mdl-cell--12-col summary-title mdl-typography--text-uppercase"><span>02.</span> Récapitulatif de la commande</h2>
+        </div>
+        <div class="mdl-grid">
+            <ul class="steps-box">
+                <li class="steps steps is-completed is-mini is-circle-entering is-line-entering is-title-entering">
+                    <div class="steps-point">
+                        <div class="steps-circle">1</div>
+                        <div class="steps-title">Panier</div>
+                        <div class="steps-tooltip">
+                            <div class="tooltip-step">Étape 1</div>
+                            <div class="tooltip-title">Panier</div>
+                            <div class="tooltip-description">Panier valider</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="steps is-current is-circle-entering is-line-entering is-title-entering">
+                    <div class="steps-point">
+                        <div class="steps-circle">2</div>
+                        <div class="steps-title">Récapitulatif</div>
+                        <div class="steps-tooltip">
+                            <div class="tooltip-step">Étape 2</div>
+                            <div class="tooltip-title">Récapitulatif</div>
+                            <div class="tooltip-description"></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="steps is-circle-entering is-title-entering is-line-entering">
+                    <div class="steps-point">
+                        <div class="steps-circle">3</div>
+                        <div class="steps-title">Paiement</div>
+                        <div class="steps-tooltip">
+                            <div class="tooltip-step">Étape 3</div>
+                            <div class="tooltip-title">Paiement</div>
+                            <div class="tooltip-description"></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="steps is-circle-entering is-title-entering is-line-entering">
+                    <div class="steps-point">
+                        <div class="steps-circle">4</div>
+                        <div class="steps-title">Fini</div>
+                        <div class="steps-tooltip">
+                            <div class="tooltip-step">Étape 4</div>
+                            <div class="tooltip-title">Validation</div>
+                            <div class="tooltip-description"></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="mdl-grid cart-row-hr">
+            <div class="mdl-cell mdl-cell--6-col mdl-cell--middle book-summary-name"><p class="book-summary-name-p">Livre</p></div>
+            <div class="mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell mdl-cell--6-col meta-data">
+                <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone mdl-cell--middle book-summary-price"><p class="book-summary-price-p">Prix unitaire</p></div>
+                <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone mdl-cell--middle book-summary-quantity"><p class="book-summary-quantity-p">Quantité</p></div>
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone mdl-cell--middle mdl-typography--text-right book-summary-total"><p class="book-summary-total-p">Total</p></div>
+            </div>
+        </div>
+        <ul class="cart-items">
+            <li class="mdl-grid cart-row" ng-repeat="(key, value) in cart">
+                <div class="mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell--6-col mdl-cell--middle book-summary">
+                    <div class="mdl-cell mdl-cell--2-col book-summary-picture">
+                        <img class="book-summary-img" ng-src="{{ value[0].cover }}" alt="{{ getName(value) }}">
+                    </div>
+                    <p class="mdl-cell mdl-cell--9-col book-summary-name-p">{{ getName(value) }}</p>
+                </div>
+                <div class="mdl-grid mdl-grid--no-spacing mdl-cell mdl-cell mdl-cell--6-col meta-data">
+                    <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone mdl-cell--middle book-summary-price">
+                        <p class="book-summary-price-p">{{ getBookPrice(value) | currency}}</p>
+                    </div>
+                    <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone mdl-cell--middle book-summary-quantity">
+                        <p class="book-summary-quantity-p">{{ getQuantity(value) }}</p>
+                    </div>
+                    <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone mdl-cell--middle mdl-typography--text-right book-summary-total">
+                        <p class="book-summary-total-p">{{ getTotalBookPrice(value) | currency}}</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="summary-total">
+            <div class="summary-total-content">
+                <p class="summary-total-content-p">Total ({{ count }} livre) : <span class="summary-total-price">{{ totalPrice | currency }}</span> / <span class="cart-total-price-good-offer">{{ goodOffer | currency }}</span></p>
+            </div>
+        </div>
+        <div class="mdl-typography--text-right">
+            <a class="btn btn-green" href="#">Commander</a>
+        </div>
+    </div>
+</div>

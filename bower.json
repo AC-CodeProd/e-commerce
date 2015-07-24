@@ -1,0 +1,35 @@
+{
+  "name": "kickstart-angularjs",
+  "version": "1.0.0",
+  "authors": [
+    "Alain Cajuste"
+  ],
+  "description": "Helps you to kickstart new projects angularjs",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "libraries"
+  ],
+  "dependencies": {
+    "angular": "~1.4.1",
+    "angular-ui-router": "~0.2.13",
+    "angular-i18n": "~1.4.1",
+    "angular-mocks": "~1.4.1",
+    "angular-translate": "~2.7.2",
+    "angular-translate-loader-static-files": "~2.7.2",
+    "angular-resource": "~1.4.2",
+    "html5shiv": "~3.7.2",
+    "classie": "~1.0.1",
+    "respond": "~1.4.2",
+    "font-awesome": "~4.3.0",
+    "underscore": "~1.8.3",
+    "material-design-lite": "https://github.com/google/material-design-lite.git#master",
+    "bourbon": "~4.2.3",
+    "compass-mixins": "~1.0.2"
+  }
+}

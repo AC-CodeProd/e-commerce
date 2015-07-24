@@ -1,0 +1,105 @@
+.cart {
+    &-row {
+        &-hr {
+            background-color: $color-cart-row-hr-bg;
+            color: $color-cart-row-hr-text;
+            height: auto;
+            margin-left: 8px;
+            margin-right: 8px;
+            & .meta-data {
+                text-align: center;
+            }
+        }
+        background-color: $color-cart-row-bg;
+        position: relative;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-left: 8px;
+        margin-right: 8px;
+        height: auto;
+        & .meta-data {
+            text-align: center;
+        }
+    }
+    &-items {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.book {
+    &-summary {
+        &-quantity, &-name, &-price, &-total {
+            &-p {
+                padding: 0;
+                margin: 0;
+            }
+        }
+        &-name {
+            &-p {
+                line-height: 50px;
+            }
+        }
+        &-picture {
+            margin-top: -10px;
+        }
+        &-img {
+            width: 50px;
+            height: 50px !important;
+            border-radius: 50%;
+        }
+    }
+}
+
+.summary {
+    &-title {
+        font-size: 40px;
+        & span {
+            color: $green;
+            font-size: 70px;
+        }
+    }
+    &-total {
+        padding: 8px;
+        text-align: right;
+        &-content {
+            background-color: $color-summary-total-bg;
+            display: inline-block;
+            padding: 8px;
+            &-p {
+                padding: 0;
+                margin: 0;
+            }
+        }
+        &-price {
+            display: inline-block;
+            position: relative;
+            &:after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 100%;
+                height: 3px;
+                opacity: 0.65;
+                background: $red;
+                transform: rotate(-10deg);
+            }
+        }
+    }
+}
+
+////////// Desktop //////////
+
+@media (min-width: $grid-desktop-breakpoint) {
+    .cart {
+        &-row {
+            &-hr {
+                height: 3.33333333rem;
+            }
+            height: 3.33333333rem;
+        }
+    }
+}

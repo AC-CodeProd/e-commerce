@@ -1,0 +1,6 @@
+.header {
+    background-color: $color-header-bg;
+    & .mdl-layout__header-row{
+        padding-right: 0;
+    }
+}

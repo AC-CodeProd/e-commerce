@@ -1,0 +1,68 @@
+$base-font-size: 24px;
+
+$container-phone: 100%;
+$container-tablet: (720px + ($grid-desktop-gutter * 2));
+$container-desktop: (1140px + ($grid-desktop-gutter * 2));
+
+
+$red: #e74c3c;
+$green: #2ecc71;
+$red-darken: darken($red,10%);
+$green-darken: darken($green,10%);
+
+$color-body: #2A2B30;
+$color-header-bg:#191a1b;
+$color-text: #CECECE;
+$color-cart-bg: #131415;
+$color-cart-preview-bg: #131415;
+$color-cart-preview-delete: #595b64;
+$color-cart-text: #abacae;
+$color-cart-count: #2A2B30;
+$color-cart-delete: $red;
+$color-cart-btn-minus: $red;
+$color-cart-btn-plus: $green;
+$color-book-text-author: #595b64;
+$color-book-text-price: #595b64;
+$color-book-action-buy: $green;
+$color-book-bg: #24252A;
+
+$color-btn-green-bg: $green;
+$color-btn-green-color: $green-darken;
+
+
+$color-cart-row-hr-bg:#24252A;
+$color-cart-row-bg:#24252A;
+$color-cart-row-hr-text:#FFF;
+
+$color-summary-total-bg:#24252A;
+
+$steps-height: 30px;
+
+$steps-width: 80px;
+$steps-width-m: 50px;
+$steps-width-s: 20px;
+
+$steps-circle: 30px;
+$steps-circle-color: #2A2B30;
+$steps-circle-s: $steps-circle * 0.5;
+$steps-circle-l: $steps-circle * 1.25;
+
+$steps-tooltip: 150px;
+
+// Timer
+$steps-timer: 200ms;
+$steps-timer-l: 400ms;
+
+// Text Color
+$steps-color: #CECECE;
+$steps-color-current: $green;
+
+$c-text-light: #fff;
+
+$font-steps: 13px;
+
+$assets-fonts: "../assets/fonts/";
+
+.overflow-hidden{
+    overflow: hidden;
+}

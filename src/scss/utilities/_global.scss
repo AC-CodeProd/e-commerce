@@ -1,0 +1,48 @@
+* {
+    list-style: none;
+    outline: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: $base-font-size;
+    height: auto;
+    font-weight: normal;
+    line-height: 1.5;
+}
+
+body {
+    background-color: $color-body;
+    color: $color-text;
+    font-size: 0.75rem;
+    line-height: 1.5;
+}
+
+.shadow-layer {
+    position: fixed;
+    min-height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(25, 26, 27, 0.6);
+    cursor: pointer;
+    z-index: 1;
+    display: none;
+}
+
+.show {
+    & .shadow-layer {
+        display: block;
+        animation: fade-in 0.3s;
+    }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

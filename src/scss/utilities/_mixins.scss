@@ -1,0 +1,20 @@
+@mixin point-size($_size) {
+    width: $_size;
+    height: $_size;
+    margin-top: -($_size / 2);
+    margin-right: -($_size / 2);
+}
+
+@mixin circle-size($_size) {
+    width: $_size;
+    height: $_size;
+    line-height: $_size;
+    @include border-radius($_size / 2);
+}
+
+@mixin steps-color($_left-color, $_left-color-position, $_right-color, $_right-color-position) {
+    background: $steps-color;
+    @include background(linear-gradient(to right, $_left-color $_left-color-position, $_right-color $_right-color-position));
+    background-size: 200% 100%;
+    background-position: right top;
+}

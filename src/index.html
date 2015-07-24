@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="fr"ng-app="commerce"class="no-js lt-ie9 lt-ie8 lt-ie7"ng-controller="PageCtrl as pageC"> <![endif]-->
+<!--[if IE 7]>         <html lang="fr"ng-app="commerce"class="no-js lt-ie9 lt-ie8"ng-controller="PageCtrl as pageC"> <![endif]-->
+<!--[if IE 8]>         <html lang="fr"ng-app="commerce"class="no-js lt-ie9"ng-controller="PageCtrl as pageC"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="fr"ng-app="commerce"class="no-js"ng-controller="PageCtrl as pageC">
+<head>
+    <meta charset="utf-8">
+    <meta name="fragment"content="!">
+    <meta name="fragment"content="/">
+    <meta name="fragment"content="\">
+    <base href="/">
+    <meta http-equiv="X-UA-Compatible"content="IE=edge">
+    <meta name="viewport"content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Future Xebian</title>
+    <!-- CSS -->
+    <!-- build:css css/vendors.min.css -->
+    <link href="/.tmp/css/main.css"rel="stylesheet">
+    <!-- endbuild -->
+</head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header id="header" class="mdl-layout__header header">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">Logo</span>
+                <div class="mdl-layout-spacer"></div>
+                <nav class="mdl-navigation mdl-layout--large-screen-only">
+                    <ul class="header-menu">
+                        <li><a class="mdl-navigation__link mdl-typography--text-uppercase" ui-sref-opts="{reload: true}" ui-sref="books">Boutique</a></li>
+                    </ul>
+                </nav>
+                <button cart id="cart-button-show" class="cart-button">
+                <span class="cart-icon fa fa-shopping-cart"></span>
+                <span class="cart-count">{{count}}</span>
+                </button>
+            </div>
+        </header>
+        <div cart class="cart-preview">
+            <div class="cart-preview-content">
+                <div class="mdl-grid">
+                    <h2 class="mdl-cell mdl-cell--12-col books-title mdl-typography--text-uppercase"><span>01.</span> Panier</h2>
+                </div>
+                <ul class="cart-preview-items">
+                    <li class="cart-preview-item" ng-repeat="(key, value) in cart">
+                        <span class="cart-preview-item-name">{{ getName(value) }}</span>
+                        <div class="cart-preview-item-quantity">
+                            <span class="cart-preview-item-quantity-input-minus">
+                                <button ng-click="minus(value)" class="cart-preview-item-quantity-input-btn" type="button">
+                                <span class="fa fa-minus"></span>
+                                </button>
+                            </span>
+                            <input class="cart-preview-item-quantity-input" type="text" value="{{ getQuantity(value) }}" disabled>
+                            <span class="cart-preview-item-quantity-input-plus">
+                                <button ng-click="plus(value)" class="cart-preview-item-quantity-input-btn" type="button">
+                                <span class="fa fa-plus"></span>
+                                </button>
+                            </span>
+                        </div>
+                        <span class="cart-preview-item-price">{{ getBookPrice(value) }} €</span>
+                        <button ng-click="delete(value)" class="cart-preview-item-delete">
+                        <span class="cart-preview-icon fa fa-2x fa-trash"></span>
+                        </button>
+                    </li>
+                </ul>
+                <div class="cart-preview-detail">
+                    <p>Total ({{ count }} livre) : <span class="cart-preview-total-price">{{ totalPrice | currency }}</span> / <span class="cart-preview-total-price-good-offer">{{ goodOffer | currency }}</span></p>
+                </div>
+                <div class="cart-preview-valid">
+                    <a id="cart-valid-btn" class="btn btn-green" ui-sref-opts="{reload: true}" ui-sref="summary">Valider</a>
+                </div>
+            </div>
+        </div>
+        <main role="main" class="mdl-layout__content main" id="main" ui-view></main>
+        <div id="shadow-layer" class="shadow-layer"></div>
+    </div>
+    <!-- JavaScript -->
+    <!-- build:js js/vendors.min.js -->
+    <script type="text/javascript" src="/bower_components/classie/classie.js"></script>
+    <script type="text/javascript"src="/bower_components/underscore/underscore.js"></script>
+    <script type="text/javascript"src="/bower_components/angular/angular.js"></script>
+    <script type="text/javascript"src="/bower_components/angular-i18n/angular-locale_fr-fr.js"></script>
+    <script type="text/javascript"src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript"src="/bower_components/angular-resource/angular-resource.min.js"></script>
+    <script type="text/javascript"src="/bower_components/material-design-lite/src/mdlComponentHandler.js"></script>
+    <script type="text/javascript"src="/bower_components/material-design-lite/src/third_party/rAF.js"></script>
+    <script type="text/javascript"src="/bower_components/material-design-lite/src/layout/layout.js"></script>
+    <script type="text/javascript"src="/.tmp/js/directives/directives.js"></script>
+    <script type="text/javascript"src="/.tmp/js/directives/books.js"></script>
+    <script type="text/javascript"src="/.tmp/js/directives/cart.js"></script>
+    <script type="text/javascript"src="/.tmp/js/directives/summary.js"></script>
+    <script type="text/javascript"src="/.tmp/js/services/services.js"></script>
+    <script type="text/javascript"src="/.tmp/js/services/cart.js"></script>
+    <script type="text/javascript"src="/.tmp/js/factorys/factorys.js"></script>
+    <script type="text/javascript"src="/.tmp/js/factorys/books.js"></script>
+    <script type="text/javascript"src="/.tmp/js/routes/routes.js"></script>
+    <script type="text/javascript"src="/.tmp/js/routes/routes.config.js"></script>
+    <script type="text/javascript"src="/.tmp/js/controllers/controllers.js"></script>
+    <script type="text/javascript"src="/.tmp/js/controllers/page.js"></script>
+    <script type="text/javascript"src="/.tmp/js/controllers/books.js"></script>
+    <script type="text/javascript"src="/.tmp/js/controllers/summary.js"></script>
+    <script type="text/javascript"src="/.tmp/js/app.js"></script>
+    <!-- endbuild -->
+</body>
+</html>

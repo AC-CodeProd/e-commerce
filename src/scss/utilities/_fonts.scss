@@ -1,0 +1,38 @@
+$font-awesome-path:   "../../bower_components/font-awesome/scss/";
+
+@import "../../bower_components/font-awesome/scss/variables";
+$fa-font-path:   "#{$assets-fonts}font-awesome";
+@import "../../bower_components/font-awesome/scss/mixins";
+@import "../../bower_components/font-awesome/scss/path";
+@import "../../bower_components/font-awesome/scss/core";
+@import "../../bower_components/font-awesome/scss/larger";
+@import "../../bower_components/font-awesome/scss/fixed-width";
+@import "../../bower_components/font-awesome/scss/list";
+@import "../../bower_components/font-awesome/scss/bordered-pulled";
+@import "../../bower_components/font-awesome/scss/animated";
+@import "../../bower_components/font-awesome/scss/rotated-flipped";
+@import "../../bower_components/font-awesome/scss/stacked";
+@import "../../bower_components/font-awesome/scss/icons";
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('#{$assets-fonts}Roboto/regular.eot');
+  src: url('#{$assets-fonts}Roboto/regular.eot?#iefix') format('embedded-opentype'),
+  url('#{$assets-fonts}Roboto/regular.woff') format('woff'),
+  url('#{$assets-fonts}Roboto/regular.woff2') format('woff2'),
+  url('#{$assets-fonts}Roboto/regular.ttf') format('truetype'),
+  url('#{$assets-fonts}Roboto/regular.svg?v=4.2.0#regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'RobotoBold';
+  src: url('#{$assets-fonts}Roboto/bold.eot');
+  src: url('#{$assets-fonts}Roboto/bold.eot?#iefix') format('embedded-opentype'),
+  url('#{$assets-fonts}Roboto/bold.woff') format('woff'),
+  url('#{$assets-fonts}Roboto/bold.woff2') format('woff2'),
+  url('#{$assets-fonts}Roboto/bold.ttf') format('truetype'),
+  url('#{$assets-fonts}Roboto/bold.svg?v=4.2.0#bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

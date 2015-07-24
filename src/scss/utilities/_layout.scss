@@ -1,0 +1,17 @@
+////////// Phone //////////
+
+@media (max-width: $grid-tablet-breakpoint - 1) {
+
+}
+
+////////// Tablet //////////
+
+@media (min-width: $grid-tablet-breakpoint) and (max-width: $grid-desktop-breakpoint - 1) {
+
+}
+
+////////// Desktop //////////
+
+@media (min-width: $grid-desktop-breakpoint) {
+
+}

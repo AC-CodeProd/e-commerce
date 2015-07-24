@@ -1,0 +1,326 @@
+.steps-box {
+    display: block;
+    margin: 30px auto;
+    height: 100%;
+    text-align: center;
+    padding: 0;
+    &:before {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -0.25em;
+    }
+}
+
+.steps {
+    position: relative;
+    display: inline-block;
+    width: $steps-width;
+    height: $steps-height;
+    font-size: $font-steps;
+    color: $c-text-light;
+    &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 100%;
+        height: 5px;
+        margin-top: -2.5px;
+        z-index: -1;
+        @include steps-color($steps-color, 50%, $steps-color, 50%);
+    }
+    &:nth-child(1) {
+        width: 0 !important;
+        &:before {
+            display: none;
+        }
+    }
+}
+
+.steps-point {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    @include point-size($steps-circle);
+    &:hover {
+        padding-bottom: 15px;
+    }
+}
+
+.steps-circle {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    @include transition(transform $steps-timer-l ease-out);
+    @include circle-size($steps-circle);
+    @include steps-color($steps-color, 50%, $steps-color, 50%);
+    @include box-shadow(0px 1px 3px 0px rgba(0, 0, 0, 0.3));
+    &:before {
+        content: "\f00c";
+        font-family: 'FontAwesome', sans-serif;
+        font-size: $font-steps;
+        display: none;
+    }
+    &:after {
+        content: "\f071";
+        font-family: 'FontAwesome', sans-serif;
+        font-size: $font-steps;
+        line-height: 1;
+        position: absolute;
+        right: -2px;
+        bottom: -2px;
+        color: orange;
+        @include text-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
+    }
+    &:hover {
+        @include transform(scale(1.1, 1.1));
+    }
+}
+
+.steps-title {
+    opacity: 0;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    line-height: 1.2;
+    color: darken($c-text-light, 20%);
+    @include transition(color $steps-timer-l ease-out);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: $steps-width;
+    margin-left: -($steps-width / 2);
+}
+
+.steps-tooltip {
+    display: none;
+    position: absolute;
+    top: $steps-circle + 10px;
+    left: $steps-circle / 2 - 15px;
+    width: $steps-tooltip + 20px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    text-align: left;
+    @include border-radius(3px);
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: -5px;
+        left: 10px;
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-width: 0 5px 5px 5px;
+        border-color: transparent transparent rgba(0, 0, 0, 0.8) transparent;
+    }
+    .tooltip-step {
+        font-weight: bold;
+        &:after {
+            display: inline-block;
+            content: "(Incomplet)";
+            margin-left: 5px;
+            color: orange;
+        }
+    }
+    .tooltip-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+}
+
+.steps {
+    &.is-mini {
+        width: $steps-width-s;
+        .steps-point {
+            @include point-size($steps-circle-s);
+        }
+        .steps-circle {
+            font-size: 0;
+            @include circle-size($steps-circle-s);
+            &:before, &:after {
+                font-size: $font-steps - 5px;
+            }
+        }
+        .steps-title {
+            display: none;
+        }
+        .steps-tooltip {
+            top: $steps-circle-s + 10px;
+            left: $steps-circle-s / 2 - 15px;
+        }
+        & + :not(.is-mini) {
+            width: $steps-width-m;
+        }
+    }
+    &.is-completed {
+        .steps-circle {
+            font-size: 0;
+            &:before {
+                display: inline-block;
+            }
+            &:after {
+                display: none;
+            }
+        }
+        .steps-circle,
+        & + .is-completed:before,
+        & + .is-current:before {
+            @include steps-color($steps-color-current, 50%, $steps-color, 50%);
+        }
+        .steps-tooltip .tooltip-step:after {
+            display: none;
+        }
+    }
+    &.is-current {
+        .steps-point {
+            @include point-size($steps-circle-l);
+        }
+        .steps-circle {
+            @include circle-size($steps-circle-l);
+            font-size: $font-steps + 5px;
+            font-weight: bold;
+            @include text-shadow(0 1px 0 rgba(0, 0, 0, 0.8));
+            @include box-shadow(0 2px 4px 0px rgba(0, 0, 0, 0.3));
+            &:after {
+                display: none;
+            }
+        }
+        .steps-title {
+            color: $c-text-light;
+            font-weight: bold;
+        }
+        .steps-tooltip {
+            top: $steps-circle-l + 10px;
+            left: $steps-circle-l / 2 - 15px;
+        }
+        .steps-circle {
+            @include steps-color($steps-color-current, 50%, $steps-color, 50%);
+        }
+        & + .steps:before {
+            @include steps-color($steps-color-current, 0, $steps-color, 40%);
+        }
+        .steps-tooltip .tooltip-step:after {
+            display: none;
+        }
+        & ~ .steps {
+            .steps-circle:after {
+                display: none;
+            }
+            .steps-tooltip .tooltip-step:after {
+                display: none;
+            }
+        }
+    }
+}
+
+.steps-point:hover {
+    .steps-title {
+        color: $c-text-light;
+    }
+    .steps-tooltip {
+        display: block;
+        @include animation(stepsTooltipIn $steps-timer-l linear forwards);
+    }
+}
+
+.steps {
+    &.is-circle-entering {
+        &:before {
+            opacity: 0;
+            @include animation(stepsBounceIn $steps-timer-l linear forwards);
+            @include transform-origin(0 0);
+        }
+        .steps-circle {
+            opacity: 0;
+            @include animation(stepsBounceIn $steps-timer-l linear forwards);
+        }
+    }
+    &.is-line-entering {
+        &:before {
+            opacity: 1;
+            @include animation(stepsLineIn $steps-timer linear forwards);
+        }
+        .steps-circle {
+            opacity: 1;
+            @include animation(stepsLineIn $steps-timer $steps-timer linear forwards);
+        }
+    }
+    &.is-title-entering {
+        .steps-title {
+            opacity: 0;
+            @include animation(stepsTitleIn $steps-timer-l linear forwards);
+        }
+    }
+}
+
+@keyframes stepsTooltipIn {
+    from {
+        @include transform(translate(0, -10px));
+        @include opacity(0);
+    }
+    to {
+        @include transform(translate(0, 0));
+        @include opacity(1);
+    }
+}
+
+
+@keyframes stepsBounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        transition-time-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    0% {
+        @include transform(scale(0.3, 0.3));
+        @include opacity(1);
+    }
+    20% {
+        @include transform(scale(1.1, 1.1));
+        @include opacity(1);
+    }
+    40% {
+        @include transform(scale(0.9, 0.9));
+        @include opacity(1);
+    }
+    60% {
+        @include transform(scale(1.03, 1.03));
+        @include opacity(1);
+    }
+    80% {
+        @include transform(scale(0.97, 0.97));
+        @include opacity(1);
+    }
+    100% {
+        @include transform(scale(1, 1));
+        @include opacity(1);
+    }
+}
+
+
+@keyframes stepsLineIn {
+    from {
+        background-position: right top;
+        opacity: 1;
+    }
+    to {
+        background-position: left top;
+        opacity: 1;
+    }
+}
+
+
+@keyframes stepsTitleIn {
+    from {
+        @include transform(translate(0, 10px));
+        @include opacity(0);
+    }
+    to {
+        @include transform(translate(0, 0));
+        @include opacity(1);
+    }
+}

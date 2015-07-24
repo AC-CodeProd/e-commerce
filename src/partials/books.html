@@ -1,0 +1,22 @@
+<div class="books-section">
+    <div class="mdl-grid">
+        <h2 class="mdl-cell mdl-cell--12-col books-title mdl-typography--text-uppercase"><span>00.</span> La boutique</h2>
+    </div>
+    <ul books class="mdl-grid books">
+        <li class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone books-item" ng-repeat="(key, value) in booksC.getBooks()">
+            <div class="book">
+                <button ng-click="add(value)" class="book-action book-action-buy">
+                <span class="fa fa-3x fa-shopping-cart"></span>
+                </button>
+                <div class="book-picture">
+                    <img class="book-img" ng-src="{{value.cover}}" alt="">
+                </div>
+                <div class="book-description">
+                    <h3 class="book-description-h3">{{value.title}}</h3>
+                    <p class="book-description-author">Xebia</p>
+                    <span class="book-description-price">{{value.price}} €</span>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

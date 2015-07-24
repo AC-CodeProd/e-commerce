@@ -1,0 +1,5 @@
+/build
+/node_modules
+/src/bower_components
+/src/.tmp
+npm-debug.log
