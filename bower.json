@@ -1,10 +1,10 @@
 {
-  "name": "kickstart-angularjs",
+  "name": "e-commerce",
   "version": "1.0.0",
   "authors": [
     "Alain Cajuste"
   ],
-  "description": "Helps you to kickstart new projects angularjs",
+  "description": "",
   "moduleType": [
     "node"
   ],

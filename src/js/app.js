@@ -7,6 +7,6 @@
         'commerce.Route',
         'commerce.Page',
         'commerce.Books',
-        'commerce.Summary',
+        'commerce.Summary'
     ]);
 })();

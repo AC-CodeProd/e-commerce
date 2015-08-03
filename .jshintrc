@@ -1,13 +1,24 @@
 {
-  "globalstrict": true,
   "globals": {
-    "angular": false,
-    "describe": false,
-    "it": false,
-    "expect": false,
-    "beforeEach": false,
-    "afterEach": false,
-    "module": false,
-    "inject": false
-  }
+    "angular": false
+  },
+  "node": true,
+  "browser": true,
+  "bitwise": true,
+  "camelcase": true,
+  "curly": true,
+  "immed": true,
+  "latedef": true,
+  "newcap": true,
+  "trailing": true,
+  "quotmark": "single",
+  "strict": true,
+  "multistr": true,
+  "debug": false,
+  "forin": true,
+  "undef": true,
+  "plusplus": true,
+  "eqeqeq": true,
+  "validthis": false,
+  "unused": true
 }
